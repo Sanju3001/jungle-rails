@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @line_items = @order.line_items
   end
 
   def create
@@ -40,6 +41,9 @@ class OrdersController < ApplicationController
       email: params[:stripeEmail],
       total_cents: cart_total,
       stripe_charge_id: stripe_charge.id, # returned by stripe
+      # image: product_image,
+      # name: product_name,
+      # description: product_description
     )
     cart.each do |product_id, details|
       if product = Product.find_by(id: product_id)
