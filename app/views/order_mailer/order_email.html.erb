@@ -1,0 +1,9 @@
+
+
+    <h1>Thank you for your order, <%= @order.email %></h1>
+
+    <p>Your order total is: $<%= sprintf('%.2f', @order.total_cents/100.0) %></p>
+
+    <p>Please visit again soon!</p>
+
+

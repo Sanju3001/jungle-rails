@@ -37,5 +37,9 @@ module Jungle
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Active Mailer options
+    config.action_mailer.default_url_options = { host: 'jungle.com' }
+
   end
 end

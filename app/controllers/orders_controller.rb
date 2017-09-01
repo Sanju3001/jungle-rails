@@ -11,7 +11,17 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
+      OrderMailer.order_email(order, current_user).deliver
       redirect_to order, notice: 'Your Order has been placed.'
+
+      # respond_to do |format|
+
+      #   OrderMailer.order_email(order).deliver_later
+
+      #   format.html { redirect_to(order.email, notice: 'Order was successfully created.') }
+
+      # end
+
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
     end
@@ -41,9 +51,6 @@ class OrdersController < ApplicationController
       email: params[:stripeEmail],
       total_cents: cart_total,
       stripe_charge_id: stripe_charge.id, # returned by stripe
-      # image: product_image,
-      # name: product_name,
-      # description: product_description
     )
     cart.each do |product_id, details|
       if product = Product.find_by(id: product_id)
@@ -56,8 +63,11 @@ class OrdersController < ApplicationController
         )
       end
     end
+
     order.save!
     order
+
+
   end
 
   # returns total in cents not dollars (stripe uses cents as well)
