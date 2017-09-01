@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
 
   def show
+    @products = Product.all.order(created_at: :desc)
   end
 
   def add_item
