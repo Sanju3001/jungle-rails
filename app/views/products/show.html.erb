@@ -29,3 +29,38 @@
   </article>
 
 </section>
+
+<h4>Submit a Review for this Product</h4>
+
+<%= form_for [@product, @newreview] do |f| %>
+
+  <div>Review description:
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  </div>
+
+  <div>
+  Select a rating:
+  <%= f.label :rating %>
+  <%= f.select :rating, options_for_select([1,2,3,4,5]) %>
+  </div>
+
+  <div><%= f.submit 'Submit' %></div>
+
+<% end %>
+
+<h4>Here's a review of this product:</h4>
+<div class="row">
+  <dl class="dl-horizontal">
+    <dt>Review</dt>
+    <dd> <%= @review.description %> </dd>
+    <dt>Rating</dt>
+    <dd> <%= @review.rating %> </dd>
+  </dl>
+</div>
+
+
+
+
+
+
