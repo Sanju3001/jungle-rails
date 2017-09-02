@@ -26,3 +26,12 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+
+## Screenshots
+
+!["Screenshot of products"](https://github.com/Sanju3001/jungle-rails/blob/master/docs/products.png)
+!["Screenshot of admin page"](https://github.com/Sanju3001/jungle-rails/blob/master/docs/adminProductsPage.png)
+!["Screenshot of adding a review page"](https://github.com/Sanju3001/jungle-rails/blob/master/docs/addReview.png)
+!["Screenshot of user registration page"](https://github.com/Sanju3001/jungle-rails/blob/master/docs/userRegistration.png)
+
+
