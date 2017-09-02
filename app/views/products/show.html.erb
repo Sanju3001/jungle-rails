@@ -28,39 +28,60 @@
 
   </article>
 
-</section>
 
-<h4>Submit a Review for this Product</h4>
 
-<%= form_for [@product, @newreview] do |f| %>
+<% if current_user %>
 
-  <div>Review description:
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+  <h4>Submit a Review for this Product:</h4>
+
+  <div class="row">
+  <dl class="dl-horizontal">
+
+  <%= form_for [@product, @newreview] do |f| %>
+
+    <div class="add-padding">
+      <%= f.label :write_a_review %>
+      <span> --> </span>
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="add-padding">
+      <%= f.label :select_a_rating_between_1_to_5 %>
+      <span> --> </span>
+      <%= f.select :rating, options_for_select([1,2,3,4,5]) %>
+    </div>
+
+    <div class="signup-button"><%= f.submit 'Submit' %></div>
+
+
+  <% end %>
+
+  </dl>
   </div>
 
-  <div>
-  Select a rating:
-  <%= f.label :rating %>
-  <%= f.select :rating, options_for_select([1,2,3,4,5]) %>
+
+
+  <h4>Here are what our other users are saying about this product:</h4>
+
+
+  <% @reviews.each do |r| %>
+
+  <div class="add-padding">
+    <div class="row">
+      <dl class="dl-horizontal">
+        <dt>Review</dt>
+        <dd> <%= r.description %> </dd>
+        <dt>Rating</dt>
+        <dd> <%= r.rating %> </dd>
+      </dl>
+    </div>
   </div>
 
-  <div><%= f.submit 'Submit' %></div>
+  <% end %>
+
 
 <% end %>
 
-<h4>Here's a review of this product:</h4>
-<div class="row">
-  <dl class="dl-horizontal">
-    <dt>Review</dt>
-    <dd> <%= @review.description %> </dd>
-    <dt>Rating</dt>
-    <dd> <%= @review.rating %> </dd>
-  </dl>
-</div>
-
-
-
-
+</section>
 
 

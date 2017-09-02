@@ -85,4 +85,25 @@ main section.products-show {
   }
 }
 
+.reviews {
+    display:         flex;
+    flex-direction:  row;
+    flex-wrap:       wrap;
+    justify-content: space-around;
+}
+
+.review {
+      border:        1px solid #ccc;
+      border-radius: 5px;
+      padding:       15px;
+      margin-top:    20px;
+}
+
+.index-header {
+  padding-top: 20px;
+}
+
+.add-padding {
+  padding-left: 20px;
+}
 
